@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script src="script.js" defer></script>
+
+<h2>Form di registrazione</h2>
+
+<form id="registrationForm">
+    <fieldset>
+        <legend>Dati personali:</legend>
+        <label>Nome:</label><br>
+        <input type="text" id="nomeUtente" required><br><br>
+        <label>Cognome:</label><br>
+        <input type="text" id="cognomeUtente" required><br><br>
+        <label>Data di nascita:</label><br>
+        <input type="Date" id="data" required><br><br>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>Account:</legend>
+        <label>Username:</label><br>
+        <input type="text" id="usernameUtente" required><br><br>
+        <label>Password:</label><br>
+        <input type="password" required id="passwordUtente"><br><br>
+        <label>Ripeti password:</label><br>
+        <input type="password" required id="passwordUtente2"><br><br>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>Termini e condizioni</legend>
+        <input type="checkbox" id="checkboxPrimo" required>
+        <label for="checkboxPrimo">Accetto i termini e le condizioni:</label><br>
+        <input type="checkbox" id="checkboxSecondo">
+        <label for="checkboxSecondo">Do il consenso per comunicazioni pubblicitarie</label><br>
+    </fieldset>
+    <br>
+    <button type="submit">Iscriviti</button>
+</form> 
+
+</body>
+</html>

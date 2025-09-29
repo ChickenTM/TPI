@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <h1>Feedback</h1>
+    <form id="form">
+        <fieldset>
+            <legend>Dati personali</legend>
+            <label>Nome:</label><br>
+            <input type="text" id="nome" required><br>
+            <label>Cognome:</label><br>
+            <input type="text" id="cognome" required><br>
+            <label>Email:</label><br>
+            <input type="text" id="email" required><br>
+            <label>Data di nascita:</label><br>
+            <input type="Date" id="data" required><br><br>
+        </fieldset>
+        <button type="button" id="btn-aggiungi">Aggiungi persona</button>
+        <button type="button" id="btn-rimuovi">Rimuovi tutti</button>
+    </form>
+    <h2>Elenco</h2>
+    <table border="1" id="tabellaPersone">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Email</th>
+                <th>Data di nascita</th>
+                <th>Azioni</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+
+</html>

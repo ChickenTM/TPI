@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <form id="registrationForm">
+    <fieldset>
+        <legend>Dati personali</legend>
+        <label>Nome:</label><br>
+        <input type="text" id="nomeUtente" required><br>
+        <label>email:</label><br>
+        <input type="text" id="email" required><br><br>
+    </fieldset>
+    <fieldset>
+        <legend>Data e Ora</legend>
+        <label>Data di nascita:</label><br>
+        <input type="Date" id="data" required><br>
+        <label>Ora</label><br>
+        <input type="time" id="ora" required><br><br>
+    </fieldset>
+    <fieldset>
+        <legend>Messaggio</legend>
+        <label>Messaggio</label><br>
+        <textarea id="messaggio" required></textarea><br>
+    </fieldset>
+    <fieldset>
+        <legend>Opzioni</legend>
+        <input type="checkbox" id="opzione">
+        <label>Iscriviti alla newsletter</label><br><br>
+    </fieldset>
+    <button type="submit">Invia Feedback</button>
+    </form>
+    <div id="riepilogo">
+    </div>
+</body>
+</html>
