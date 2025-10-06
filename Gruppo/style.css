@@ -1,5 +1,88 @@
-.container{
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    text-align: center;
+/* CSS semplice per il layout e il modal */
+.container {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.3);
+}
+
+/* Modal Content */
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 6px;
+  width: 90%;
+  max-width: 400px;
+
+}
+
+/* The Close Button */
+.close {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover {
+  color: #000;
+}
+
+input, textarea, select, button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button:hover {
+  background: #1565a0;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+#btn-issues {
+  padding: 4px 10px;
+  font-size: 13px;
+  border-radius: 4px;
+  min-width: unset;
+  width: auto;
+}
+.top-bar input[type="text"] {
+  height: 28px;
+  font-size: 14px;
+  width: 180px;
+  flex: unset;
+}
+
+.issue-col {
+    background: #fff;
+    border-radius: 6px;
+    padding: 16px 10px;
+    min-width: 140px;
+    min-height: 220px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
 }

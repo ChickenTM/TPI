@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <title></title>
 </head>
 <body>
     <div>
-        <h3>Management</h3>
-        <button>Nuova Issue</button>
-        <input type="text" placeholder="Cerca...">
+        <h1>Management</h1>
+        <div class="top-bar">
+            <button type="button" onclick="newIssues()" id="btn-issues">Nuova Issue</button>
+            <input type="text" placeholder="Cerca..." />
+        </div>
         <br><br>    
     </div>
 
@@ -29,6 +32,28 @@
         
         <div class="issue-col">
             Done
+        </div>
+    </div>
+
+    <div id="myModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Nuova Issue</h2>
+            <form id="issueForm">
+                <label for="issueTitle">Titolo:</label><br>
+                <input type="text" id="issueTitle" name="issueTitle" required><br><br>
+                <label for="issueDesc">Descrizione:</label><br>
+                <textarea id="issueDesc" name="issueDesc" rows="3" required></textarea><br><br>
+                <label for="issuePriority">Priorità:</label><br>
+                <select id="issuePriority" name="issuePriority" required>
+                    <option value="Alta">Alta</option>
+                    <option value="Media">Media</option>
+                    <option value="Bassa">Bassa</option>
+                </select><br><br>
+                <label for="issueAuthor">Autore:</label><br>
+                <input type="text" id="issueAuthor" name="issueAuthor" required><br><br>
+                <button type="submit">Aggiungi Issue</button>
+            </form>
         </div>
     </div>
 
