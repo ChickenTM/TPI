@@ -1,9 +1,7 @@
 function newIssues() {
-    // Mostra il modal quando si clicca il bottone
     document.getElementById("myModal").style.display = "block";
 }
 
-// Gestione semplice del submit del form
 var form = document.getElementById("issueForm");
 if (form) {
     form.onsubmit = function(e) {
@@ -19,13 +17,11 @@ if (form) {
     };
 }
 
-// Chiudi il modal quando si clicca sulla X
 var span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
     document.getElementById("myModal").style.display = "none";
 }
 
-// Chiudi il modal quando si clicca fuori dal contenuto del modal
 window.onclick = function(event) {
     var modal = document.getElementById("myModal");
     if (event.target == modal) {

@@ -20,11 +20,13 @@
 /* Modal Content */
 .modal-content {
   background: #fff;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 6px;
-  width: 90%;
-  max-width: 400px;
+  padding: 10px;
+  border-radius: 10px;
+  width: 400px;
+  position: relative;
+  left: 420px;
+  top: 100px;
+  
 
 }
 
@@ -34,9 +36,6 @@
   font-size: 24px;
   font-weight: bold;
   cursor: pointer;
-}
-.close:hover {
-  color: #000;
 }
 
 input, textarea, select, button {
@@ -48,28 +47,18 @@ input, textarea, select, button {
   box-sizing: border-box;
 }
 
-button:hover {
-  background: #1565a0;
+#btn-issues {
+  top: 38px;
+  width: 20%;
 }
 
-.top-bar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 16px;
-}
-#btn-issues {
-  padding: 4px 10px;
-  font-size: 13px;
-  border-radius: 4px;
-  min-width: unset;
-  width: auto;
-}
-.top-bar input[type="text"] {
-  height: 28px;
-  font-size: 14px;
-  width: 180px;
-  flex: unset;
+
+.barra-di-ricerca {
+  height: 30px;
+  width: 100px;
+  position: relative;
+  left: 100px;
+  bottom: 50px;
 }
 
 .issue-col {
@@ -86,3 +75,46 @@ button:hover {
     font-weight: bold;
     font-size: 16px;
 }
+
+#newIssuesTitle {
+  position: relative;
+  left: 130px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+  background: #fff;
+}
+
+#top-container{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+#conta {
+  position: relative;
+  left: 300px;
+}
+.issue-counter-backlog{
+   position: relative;
+  right:200px;
+}
+.issue-counter-progress{
+   position: relative;
+  right:150px;
+}
+.issue-counter-review{
+   position: relative;
+  right:100px;
+}
+.issue-counter-done{
+   position: relative;
+  right:50px;
+}
+ 
+ 
