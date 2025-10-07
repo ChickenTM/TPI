@@ -9,52 +9,63 @@
 </head>
 <body>
     <div>
-
-        <!-- prova -->
-        <h1>Management</h1>
+        <div id="top-container">
+         <h3 id="">PROBLEM MANAGEMENT BOARD</h3>
+         <h4>ISSUES</h4>
+   
         <div class="top-bar">
             <button type="button" onclick="newIssues()" id="btn-issues">Nuova Issue</button>
             <input type="text" placeholder="Cerca..." />
         </div>
-        <br><br>    
+ 
+        <div id="conta">
+            <span class="issue-counter-backlog">Backlog:</span>
+            <span class="issue-counter-progress">In Progress:</span>
+            <span class="issue-counter-review">Review:</span>
+            <span class="issue-counter-done">Done:</span>
+        </div>
+        <br><br>
     </div>
-
+ 
     <div class="container">
         <div class="issue-col">
             Backlog
         </div>
-
+ 
         <div class="issue-col">
             In Progress
         </div>
-        
+ 
         <div class="issue-col">
             Review
         </div>
-        
+ 
         <div class="issue-col">
             Done
         </div>
     </div>
+ 
 
     <div id="myModal" class="modal" style="display:none;">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Nuova Issue</h2>
+            <span class="close">&times;</span> <!-- close buttone (la x del model) -->
+            <h2 id="newIssuesTitle">Nuova Issue</h2>
             <form id="issueForm">
-                <label for="issueTitle">Titolo:</label><br>
-                <input type="text" id="issueTitle" name="issueTitle" required><br><br>
-                <label for="issueDesc">Descrizione:</label><br>
-                <textarea id="issueDesc" name="issueDesc" rows="3" required></textarea><br><br>
-                <label for="issuePriority">Priorità:</label><br>
-                <select id="issuePriority" name="issuePriority" required>
-                    <option value="Alta">Alta</option>
-                    <option value="Media">Media</option>
-                    <option value="Bassa">Bassa</option>
-                </select><br><br>
-                <label for="issueAuthor">Autore:</label><br>
-                <input type="text" id="issueAuthor" name="issueAuthor" required><br><br>
-                <button type="submit">Aggiungi Issue</button>
+                <fieldset>
+                    <label for="issueTitle">Titolo:</label><br>
+                    <input type="text" id="titoloIssue" name="IssueTitolo" required>
+                    <label for="descrizioneIssue">Descrizione:</label><br>
+                    <textarea id="descrizioneIssue" name="issueDescrizione" required></textarea>
+                    <label for="prioritaIssue">Priorità:</label><br>
+                    <select id="prioritaIssue" name="issuePriorita" required>
+                        <option value="alta">Alta</option>
+                        <option value="media">Media</option>
+                        <option value="bassa">Bassa</option>
+                    </select>
+                    <label for="creatoreIssue">Creatore:</label><br>
+                    <input type="text" id="creatoreIssue" name="issueCreatore" required>
+                    <button type="submit">Crea Issue</button>
+                </fieldset>
             </form>
         </div>
     </div>
