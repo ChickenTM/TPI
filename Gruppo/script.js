@@ -1,31 +1,19 @@
 function newIssues() {
-    document.getElementById("myModal").style.display = "block";
+  var checkbox = document.getElementById('issue-modal');
+  if (checkbox) checkbox.checked = true;
 }
 
-var form = document.getElementById("issueForm");
+var form = document.getElementById('issueForm');
 if (form) {
-    form.onsubmit = function(e) {
-        e.preventDefault();
-        alert(
-            "Titolo: " + document.getElementById("issueTitle").value +
-            "\nDescrizione: " + document.getElementById("issueDesc").value +
-            "\nPriorità: " + document.getElementById("issuePriority").value +
-            "\nAutore: " + document.getElementById("issueAuthor").value
-        );
-        document.getElementById("myModal").style.display = "none";
-        form.reset();
-    };
-}
-
-var span = document.getElementsByClassName("close")[0];
-span.onclick = function() {
-    document.getElementById("myModal").style.display = "none";
-}
-
-window.onclick = function(event) {
-    var modal = document.getElementById("myModal");
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var titolo = document.getElementById('titoloIssue').value;
+    var descr = document.getElementById('descrizioneIssue').value;
+    var priorita = document.getElementById('prioritaIssue').value;
+    var creatore = document.getElementById('creatoreIssue').value;
+    var checkbox = document.getElementById('issue-modal');
+    if (checkbox) checkbox.checked = false;
+    form.reset();
+  });
 }
 

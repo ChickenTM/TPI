@@ -76,10 +76,7 @@ input, textarea, select, button {
     font-size: 16px;
 }
 
-#newIssuesTitle {
-  position: relative;
-  left: 130px;
-}
+
 
 .footer {
   position: fixed;
