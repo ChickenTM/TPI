@@ -114,4 +114,96 @@ input, textarea, select, button {
   right:50px;
 }
  
+.container{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    text-align: center;
+}
+ 
+#title {
+    position: relative;
+    left: 600px;
+    top: 100px;
+    size: 40px;
+  }
+ 
+.barraStato {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+  }
+ 
+  .box {
+      display: inline-block;
+      position: relative;
+      left: 50px;
+      border: 2px solid black;    
+      background-color: #f2f2f2;  
+      padding: 20px;              
+      width: 200px;
+      margin-top: 150px;              
+      border-radius: 10px;        
+      font-family: Arial, sans-serif;
+    }
+ 
+ 
+    .box2 {
+      display: inline-block;
+      position: relative;
+      left: 350px;
+      border: 2px solid black;    
+      background-color: #f2f2f2;  
+      padding: 20px;              
+      width: 200px;
+       margin-top: 150px;              
+      border-radius: 10px;        
+      font-family: Arial, sans-serif;
+    }
+ 
+    .box3 {
+      display: inline-block;
+      position: relative;
+      left: 650px;
+      border: 2px solid black;    
+      background-color: #f2f2f2;  
+      padding: 20px;              
+      width: 200px;
+       margin-top: 150px;              
+      border-radius: 10px;        
+      font-family: Arial, sans-serif;
+    }
+ 
+ 
+.barraStato button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+}
+ 
+.barraStato button:hover {
+  background-color: black;
+}
+ 
+.logo {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+ 
+.button {
+      position: fixed;    
+      top: 10px;          
+      right: 20px;
+}
  
