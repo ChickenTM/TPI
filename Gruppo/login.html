@@ -4,28 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" />
     <title>Login</title>
 </head>
 
-<body>
-    <div class="login">
-        <form>
-            <legend>
-                <fieldset>
-                    <h2 id="loginH2">LOGIN</h2>
-                    <label for="username">Username:</label>
-                    <input type="text" name="username"><br><br>
-                    <label for="password">Password:</label>
-                    <input type="text" name="password">
-                    <button id="btn-login" type="submit">Login</button>
-                </fieldset>
+<body class="bg-gradient-to-br from-blue-200 to-blue-400 flex items-center justify-center min-h-screen">
+    <form class="bg-blue-100 shadow-xl rounded-xl p-6 w-96">
+        <fieldset class="border border-blue-300 rounded-lg p-6">
+            <legend class="text-center text-xl font-semibold px-4 text-blue-800">
+                LOGIN
             </legend>
-        </form>
-    </div>
 
+            <label for="username" class="block mt-4 text-sm font-medium text-blue-900">Username:</label>
+            <input type="text" name="username" class="input input-bordered w-full mt-1" />
+
+            <label for="password" class="block mt-4 text-sm font-medium text-blue-900">Password:</label>
+            <input type="password" name="password" class="input input-bordered w-full mt-1" />
+
+            <button type="submit" class="btn btn-primary w-full mt-6">Login</button>
+        </fieldset>
+    </form>
 </body>
 
 </html>
