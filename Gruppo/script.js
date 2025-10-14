@@ -16,4 +16,3 @@ if (form) {
     form.reset();
   });
 }
-
