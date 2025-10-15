@@ -3,15 +3,15 @@ function newIssues() {
   if (checkbox) checkbox.checked = true;
 }
 
-var form = document.getElementById('issueForm');
+let form = document.getElementById('issueForm');
 if (form) {
   form.addEventListener('submit', function(e) {
     e.preventDefault();
-    var titolo = document.getElementById('titoloIssue').value;
-    var descr = document.getElementById('descrizioneIssue').value;
-    var priorita = document.getElementById('prioritaIssue').value;
-    var creatore = document.getElementById('creatoreIssue').value;
-    var checkbox = document.getElementById('issue-modal');
+    let titolo = document.getElementById('titoloIssue').value;
+    let descr = document.getElementById('descrizioneIssue').value;
+    let priorita = document.getElementById('prioritaIssue').value;
+    let creatore = document.getElementById('creatoreIssue').value;
+    let checkbox = document.getElementById('issue-modal');
     if (checkbox) checkbox.checked = false;
     form.reset();
   });

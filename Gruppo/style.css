@@ -1,4 +1,3 @@
-/* CSS semplice per il layout e il modal */
 .container {
     display: flex;
     gap: 16px;
@@ -17,7 +16,6 @@
   background: rgba(0,0,0,0.3);
 }
 
-/* Modal Content */
 .modal-content {
   background: #fff;
   padding: 10px;
@@ -30,7 +28,6 @@
 
 }
 
-/* The Close Button */
 .close {
   float: right;
   font-size: 24px;
