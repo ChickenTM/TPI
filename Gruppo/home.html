@@ -1,27 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
 <head>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SCP - Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.js"></script>
 </head>
- 
-<div class="barraStato">
-  <img class="logo" src="logo.png" eight="200px" width="100px">
-      <button class="button" href="board.html">HOME</button>
-</div>
+<body class="bg-white">
 
- 
- 
-<h1 id="title">BENVENUTO IN SCP!</h1>
-<div class="container">
-<div class="box">
-  <h2> CHE COSA FA?</h2>
-  <div>Il nostro sistema ti permette di creare, organizzare e monitorare le tue attività in modo semplice e visivo.</div>
-</div>
-<div class="box2">
-  <h2> CHI SONO I CREATORI?</h2>
-  <div>Il nome di questo sito deriva dalle iniziali dei cognomi dei creatori, Singh Castiglioni Perera.</div>
-</div>
-<div class="box3">
-  <h2>COME E' STRUTTURATO?</h2>
-  <div>il sistema inserisce automaticamente la tua issue nella Kanban board, suddivisa in quattro colonne fondamentali:
-     backlog, in progress, review, done.</div>
-</div>
-</div>
+  <header class="fixed top-0 left-0 w-full z-50">
+    <nav class="flex items-center justify-between h-12 px-6 bg-blue">
+      <div class="flex items-center">
+        <span class="text-[28px] font-serif" style="color:#d9c99a;">SCP</span>
+      </div>
+
+      <div class="flex items-center">
+        <a href="board.html" class="text-white text-sm hover:underline">HOME</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="h-12"></div>
+
+  <main class="text-center">
+    <h1 id="title" class="mt-16 text-[32px] font-bold text-black">BENVENUTO IN SCP!</h1>
+
+    <div class="flex justify-center gap-5 px-6 mt-14 flex-wrap">
+      <section class="bg-[#f2f2f2] border-[1.5px] border-black rounded-md w-[250px] p-5 text-center">
+        <h2 class="text-[16px] font-bold mb-2">CHE COSA FA?</h2>
+        <p class="text-sm leading-5">Il nostro sistema ti permette di creare, organizzare e monitorare le tue attività in modo semplice e visivo.</p>
+      </section>
+
+      
+      <section class="bg-[#f2f2f2] border-[1.5px] border-black rounded-md w-[250px] p-5 text-center">
+        <h2 class="text-[16px] font-bold mb-2">CHI SONO I CREATORI?</h2>
+        <p class="text-sm leading-5">Il nome di questo sito deriva dalle iniziali dei cognomi dei creatori: Singh, Castiglioni, Perera.</p>
+      </section>
+
+      
+      <section class="bg-[#f2f2f2] border-[1.5px] border-black rounded-md w-[250px] p-5 text-center">
+        <h2 class="text-[16px] font-bold mb-2">COME È STRUTTURATO?</h2>
+        <p class="text-sm leading-5">Il sistema inserisce automaticamente la tua issue nella Kanban board, suddivisa in quattro colonne fondamentali: backlog, in progress, review, done.</p>
+      </section>
+    </div>
+  </main>
+
+</body>
+</html>
