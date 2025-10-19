@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>SCP - Home</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.js"></script>
 </head>
-<body class="bg-[#e6f4ff] text-black font-sans">
-
+<body class="bg-gradient-to-b from-blue-200 to-blue-400 text-black font-sans min-h-screen">
 
   <header class="fixed top-0 left-0 w-full z-50">
     <nav class="flex items-center justify-between h-14 px-6 bg-blue-700 shadow-md">
@@ -17,23 +17,18 @@
       </div>
 
       <div class="flex items-center">
-        <a href="board.html" class="text-white text-base hover:underline">HOME</a>
+        <a href="board.html" class="text-white text-base hover:underline">BOARD</a>
       </div>
     </nav>
   </header>
-
-
   <div class="h-14"></div>
 
-  
-  <main class="text-center">
+  <div class="text-center">
     <h1 id="title" class="mt-20 text-[36px] font-bold text-blue-800 font-serif">
       BENVENUTO IN SCP!
     </h1>
 
-  
     <div class="flex justify-center gap-8 px-8 mt-16 flex-wrap">
-
       <section class="bg-blue-600 text-white border-[1.5px] border-blue-800 rounded-md w-[300px] p-7 text-center shadow-lg">
         <h2 class="text-[18px] font-bold mb-3 uppercase">CHE COSA FA?</h2>
         <p class="text-[15px] leading-6">
@@ -41,8 +36,6 @@
           in modo semplice e visivo.
         </p>
       </section>
-
-
       <section class="bg-blue-600 text-white border-[1.5px] border-blue-800 rounded-md w-[300px] p-7 text-center shadow-lg">
         <h2 class="text-[18px] font-bold mb-3 uppercase">CHI SONO I CREATORI?</h2>
         <p class="text-[15px] leading-6">
@@ -50,7 +43,6 @@
           Singh, Castiglioni, Perera.
         </p>
       </section>
-
       <section class="bg-blue-600 text-white border-[1.5px] border-blue-800 rounded-md w-[300px] p-7 text-center shadow-lg">
         <h2 class="text-[18px] font-bold mb-3 uppercase">COME È STRUTTURATO?</h2>
         <p class="text-[15px] leading-6">
@@ -59,13 +51,12 @@
         </p>
       </section>
     </div>
-
     <div class="mt-12 mb-20">
       <button>
         <a  href="createAccount.html" class="btn bg-blue-700 hover:bg-blue-800 text-white text-lg px-10 py-2 rounded-md shadow-md border border-blue-900 transition">SIGN UP</a>
       </button>
     </div>
-  </main>
+  </div>
 
 </body>
 </html>
