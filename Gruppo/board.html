@@ -26,18 +26,18 @@
             </div>
 
             <div id="conta" class="flex justify-center gap-12 mt-4 text-sm text-gray-600">
-                <span class="issue-counter-backlog">Backlog:</span>
-                <span class="issue-counter-progress">In Progress:</span>
-                <span class="issue-counter-review">Review:</span>
-                <span class="issue-counter-done">Done:</span>
+                <span id="issue-counter-backlog">Backlog:</span>
+                <span id="issue-counter-progress">In Progress:</span>
+                <span id="issue-counter-review">Review:</span>
+                <span id="issue-counter-done">Done:</span>
             </div>
         </div>
 
         <div class="container w-full">
-            <div class="issue-col card card-compact bg-base-100 shadow-md p-4">Backlog</div>
-            <div class="issue-col card card-compact bg-base-100 shadow-md p-4">In Progress</div>
-            <div class="issue-col card card-compact bg-base-100 shadow-md p-4">Review</div>
-            <div class="issue-col card card-compact bg-base-100 shadow-md p-4">Done</div>
+            <div id="issue-backlog" class="issue-col card card-compact bg-base-100 shadow-md p-4">Backlog <br></div>
+            <div id="issue-progress" class="issue-col card card-compact bg-base-100 shadow-md p-4">In Progress <br></div>
+            <div id="issue-review" class="issue-col card card-compact bg-base-100 shadow-md p-4">Review <br></div>
+            <div id="issue-done" class="issue-col card card-compact bg-base-100 shadow-md p-4">Done <br></div>
         </div>
 
         <input type="checkbox" id="issue-modal" class="modal-toggle" />
@@ -58,6 +58,15 @@
                         <option value="alta">Alta</option>
                         <option value="media">Media</option>
                         <option value="bassa">Bassa</option>
+                    </select>
+                    <label class="label w-full justify-center"><span class="label-text">Tipologia</span></label>
+                    <select id="tipoIssue" name="issueTipo" class="select select-bordered w-3/4 select-sm mx-auto"
+                        required>
+                        <option>Seleziona</option>
+                        <option value="backlog">Backlog</option>
+                        <option value="inProgress">In Progress</option>
+                        <option value="review">Review</option>
+                        <option value="done">Done</option>
                     </select>
                     <label class="label w-full justify-center"><span class="label-text">Creatore</span></label>
                     <input type="text" id="creatoreIssue" name="issueCreatore"

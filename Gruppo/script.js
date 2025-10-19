@@ -1,18 +1,135 @@
+const form = document.getElementById('issueForm');
+const issues = JSON.parse(localStorage.getItem("issues")) || [];
+const kanbanBacklog = document.querySelector("#issue-backlog");
+const kanbanProgress = document.querySelector('#issue-progress');
+const kanbanReview = document.querySelector("#issue-review");
+const kanbanDone = document.querySelector("#issue-done");
+aggiornaKanbanBoard();
+aggiornaCounter();
 function newIssues() {
-  var checkbox = document.getElementById('issue-modal');
+  let checkbox = document.getElementById('issue-modal');
   if (checkbox) checkbox.checked = true;
 }
 
-let form = document.getElementById('issueForm');
 if (form) {
-  form.addEventListener('submit', function(e) {
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
     let titolo = document.getElementById('titoloIssue').value;
     let descr = document.getElementById('descrizioneIssue').value;
     let priorita = document.getElementById('prioritaIssue').value;
+    let tipologia = document.getElementById('tipoIssue').value;
     let creatore = document.getElementById('creatoreIssue').value;
     let checkbox = document.getElementById('issue-modal');
+
     if (checkbox) checkbox.checked = false;
+    if (!titolo || !descr || !priorita || !tipologia || !creatore) {
+      alert("compila tutti i campi");
+      return;
+    }
+    let issue = { titolo, descr, priorita, tipologia, creatore };
+    issues.push(issue);
+    salvaInLocalStorage();
+    aggiornaKanbanBoard();
     form.reset();
   });
+}
+
+
+function salvaInLocalStorage() {
+  localStorage.setItem("issues", JSON.stringify(issues))
+}
+
+function aggiornaKanbanBoard() {
+  kanbanBacklog.innerHTML = "Backlog <br>";
+  kanbanProgress.innerHTML = "In Progress <br>";
+  kanbanReview.innerHTML = "Review <br>";
+  kanbanDone.innerHTML = "Done <br>";
+  const counts = { backlog: 0, inProgress: 0, review: 0, done: 0 };
+
+  issues.forEach((issue, index) => {
+    const card = document.createElement("div");
+    card.className = "card bg-base-100 shadow-md p-3 border border-gray-200 hover:shadow-lg transition w-full max-w-sm mx-auto";
+
+    let prioritaColor = "";
+    if (issue.priorita === "alta") prioritaColor = "bg-red-200 text-red-700";
+    else if (issue.priorita === "media") prioritaColor = "bg-yellow-200 text-yellow-700";
+    else prioritaColor = "bg-green-200 text-green-700";
+
+    card.innerHTML = `
+      <div class="card-body p-3 gap-2">
+        <div class="flex justify-between items-center">
+          <h3 class="font-bold text-md">${issue.titolo}</h3>
+          <span class="badge ${prioritaColor} font-semibold capitalize">${issue.priorita}</span>
+        </div>
+        <p class="text-sm text-gray-600">${issue.descr}</p>
+        <div class="flex gap-2 mt-3 w-full">
+          <span class="badge bg-gray-200 text-gray-700">${issue.creatore}</span>     
+          <button onclick="spostaIssue(${index})"
+            class="btn btn-xs btn-outline btn-primary flex-1">Sposta</button>
+          <button onclick="rimuoviIssue(${index})"
+            class="btn btn-xs btn-outline btn-error flex-1">Elimina</button>
+        </div>
+      </div>
+    `;
+    if (issue.tipologia === "backlog") {
+      kanbanBacklog.appendChild(card);
+      counts.backlog++;
+    } else if (issue.tipologia === "inProgress") {
+      kanbanProgress.appendChild(card);
+      counts.inProgress++;
+    } else if (issue.tipologia === "review") {
+      kanbanReview.appendChild(card);
+      counts.review++;
+    } else {
+      kanbanDone.appendChild(card);
+      counts.done++;
+    }
+  });
+
+  aggiornaCounter(counts);
+}
+
+function spostaIssue(index) {
+  const issue = issues[index];
+  if (issue.tipologia === "backlog") {
+    kanbanBacklog.innerHTML="Backlog <br>";
+    issue.tipologia = "inProgress";
+  } else if (issue.tipologia === "inProgress") {
+    kanbanProgress.innerHTML="In Progress <br>";
+    issue.tipologia = "review";
+  } else if (issue.tipologia === "review") {
+    kanbanReview.innerHTML="Review <br>";
+    issue.tipologia = "done";
+  } else {
+    kanbanDone.innerHTML="Done <br>";
+    issue.tipologia = "backlog";
+  }
+  salvaInLocalStorage();
+  aggiornaKanbanBoard();
+}
+function rimuoviIssue(index) {
+  issues.splice(index, 1);
+  salvaInLocalStorage();
+  aggiornaKanbanBoard();
+}
+function aggiornaCounter(counts = null) {
+  if (!counts) {
+    counts = { backlog: 0, inProgress: 0, review: 0, done: 0 };
+    issues.forEach(index => {
+      if (index.tipologia === "backlog") counts.backlog++;
+      else if (index.tipologia === "progress") counts.inProgress++;
+      else if (index.tipologia === "review") counts.review++;
+      else counts.done++;
+    });
+  }
+
+  const cBack = document.querySelector('#issue-counter-backlog');
+  const cProg = document.querySelector('#issue-counter-progress');
+  const cRev = document.querySelector('#issue-counter-review');
+  const cDone = document.querySelector('#issue-counter-done');
+
+  if (cBack) cBack.innerText = `backlog: ${counts.backlog}`;
+  if (cProg) cProg.innerText = `in Progress: ${counts.inProgress}`;
+  if (cRev) cRev.innerText = `review: ${counts.review}`;
+  if (cDone) cDone.innerText = `done: ${counts.done}`;
 }
