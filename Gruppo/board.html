@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" />
     <script src="script.js" defer></script>
-    <title></title>
+    <title>Problem Management Board</title>
 </head>
 
 <body class="bg-base-100 text-base-content">
@@ -16,15 +16,15 @@
         <div id="top-container" class="p-4">
             <h3 class="text-xl font-bold">PROBLEM MANAGEMENT BOARD</h3>
             <h4 class="text-sm text-gray-600">ISSUES</h4>
-        
+
             <div class="flex items-center gap-2 mt-3">
                 <button type="button" onclick="newIssues()" id="btn-issues" class="btn btn-sm btn-primary">
                     Nuova Issue
                 </button>
-                <input type="text" placeholder="Cerca..." id="barra-di-ricerca" class="input input-sm input-bordered w-48" />
+                <input type="text" placeholder="Cerca..." id="barra-di-ricerca"
+                    class="input input-sm input-bordered w-48" />
             </div>
-        
-            <!-- Contatori centrati -->
+
             <div id="conta" class="flex justify-center gap-12 mt-4 text-sm text-gray-600">
                 <span class="issue-counter-backlog">Backlog:</span>
                 <span class="issue-counter-progress">In Progress:</span>
@@ -32,16 +32,13 @@
                 <span class="issue-counter-done">Done:</span>
             </div>
         </div>
-        
-        <!-- Colonne issue -->
-        <div class="container flex gap-4 p-4 justify-center">
-            <div class="issue-col card card-compact bg-base-100 shadow-md p-4 flex-1">Backlog</div>
-            <div class="issue-col card card-compact bg-base-100 shadow-md p-4 flex-1">In Progress</div>
-            <div class="issue-col card card-compact bg-base-100 shadow-md p-4 flex-1">Review</div>
-            <div class="issue-col card card-compact bg-base-100 shadow-md p-4 flex-1">Done</div>
-        </div>
-        
 
+        <div class="container w-full">
+            <div class="issue-col card card-compact bg-base-100 shadow-md p-4">Backlog</div>
+            <div class="issue-col card card-compact bg-base-100 shadow-md p-4">In Progress</div>
+            <div class="issue-col card card-compact bg-base-100 shadow-md p-4">Review</div>
+            <div class="issue-col card card-compact bg-base-100 shadow-md p-4">Done</div>
+        </div>
 
         <input type="checkbox" id="issue-modal" class="modal-toggle" />
         <div class="modal">
@@ -55,7 +52,7 @@
                     <label class="label w-full justify-center"><span class="label-text">Descrizione</span></label>
                     <textarea id="descrizioneIssue" name="issueDescrizione"
                         class="textarea textarea-bordered w-3/4 textarea-sm mx-auto" rows="3" required></textarea>
-                    <label class="label w-full justify-center"><span class="label-text">PrioritÃ</span></label>
+                    <label class="label w-full justify-center"><span class="label-text">Priorità</span></label>
                     <select id="prioritaIssue" name="issuePriorita"
                         class="select select-bordered w-3/4 select-sm mx-auto" required>
                         <option value="alta">Alta</option>
@@ -73,13 +70,13 @@
                             style="background-color:#6d28d9;color:#fff;border:none;">Annulla</label>
                     </div>
                 </form>
-
             </div>
         </div>
 
         <footer class="footer p-4 text-center justify-center">
             &copy; Realizzato da: Singh Sukhmandeep, Castiglioni Gabriele & Perera Shane
         </footer>
+    </div>
 </body>
 
 </html>
