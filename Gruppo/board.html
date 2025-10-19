@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" />
     <script src="script.js" defer></script>
-    <title></title>
+    <title>Problem Management Board</title>
 </head>
 
 <body class="bg-base-100 text-base-content">
@@ -17,19 +17,20 @@
             <h3 class="text-xl font-bold">PROBLEM MANAGEMENT BOARD</h3>
             <h4 class="text-sm text-gray-600">ISSUES</h4>
 
-            <div class="top-bar flex items-center gap-1 mt-3">
-                <button type="button" onclick="newIssues()" id="btn-issues" class="btn btn-sm btn-primary">Nuova
-                    Issue</button>
-                <input type="text" placeholder="Cerca..." class="input input-sm input-bordered w-48 ml-0" />
+            <div class="flex items-center gap-2 mt-3">
+                <button type="button" onclick="newIssues()" id="btn-issues" class="btn btn-sm btn-primary">
+                    Nuova Issue
+                </button>
+                <input type="text" placeholder="Cerca..." id="barra-di-ricerca"
+                    class="input input-sm input-bordered w-48" />
             </div>
 
-            <div id="conta" class="flex gap-4 mt-3 text-sm text-gray-600">
-                <span id="issue-counter-backlog">Backlog:</span>
-                <span id="issue-counter-progress">In Progress:</span>
-                <span id="issue-counter-review">Review:</span>
-                <span id="issue-counter-done">Done:</span>
+            <div id="conta" class="flex justify-center gap-12 mt-4 text-sm text-gray-600">
+                <span class="issue-counter-backlog">Backlog:</span>
+                <span class="issue-counter-progress">In Progress:</span>
+                <span class="issue-counter-review">Review:</span>
+                <span class="issue-counter-done">Done:</span>
             </div>
-            <br><br>
         </div>
 
         <div class="container flex flex-wrap md:flex-nowrap gap-4 p-4">
@@ -52,6 +53,13 @@
         </div>
 
 
+
+        <div class="container w-full">
+            <div class="issue-col card card-compact bg-base-100 shadow-md p-4">Backlog</div>
+            <div class="issue-col card card-compact bg-base-100 shadow-md p-4">In Progress</div>
+            <div class="issue-col card card-compact bg-base-100 shadow-md p-4">Review</div>
+            <div class="issue-col card card-compact bg-base-100 shadow-md p-4">Done</div>
+        </div>
 
         <input type="checkbox" id="issue-modal" class="modal-toggle" />
         <div class="modal">
@@ -92,13 +100,13 @@
                             style="background-color:#6d28d9;color:#fff;border:none;">Annulla</label>
                     </div>
                 </form>
-
             </div>
         </div>
 
         <footer class="footer p-4 text-center justify-center">
             &copy; Realizzato da: Singh Sukhmandeep, Castiglioni Gabriele & Perera Shane
         </footer>
+    </div>
 </body>
 
 </html>
