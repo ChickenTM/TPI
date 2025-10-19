@@ -94,19 +94,19 @@ input, textarea, select, button {
   position: relative;
   left: 300px;
 }
-.issue-counter-backlog{
+#issue-counter-backlog{
    position: relative;
   right:200px;
 }
-.issue-counter-progress{
+#issue-counter-progress{
    position: relative;
   right:150px;
 }
-.issue-counter-review{
+#issue-counter-review{
    position: relative;
   right:100px;
 }
-.issue-counter-done{
+#issue-counter-done{
    position: relative;
   right:50px;
 }
