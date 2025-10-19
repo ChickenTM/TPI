@@ -127,6 +127,44 @@ button {
   padding: 0.5rem 0;
 }
 
+#top-container{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+#conta {
+  position: relative;
+  left: 300px;
+}
+#issue-counter-backlog{
+   position: relative;
+  right:200px;
+}
+#issue-counter-progress{
+   position: relative;
+  right:150px;
+}
+#issue-counter-review{
+   position: relative;
+  right:100px;
+}
+#issue-counter-done{
+   position: relative;
+  right:50px;
+}
+ 
+.container{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    text-align: center;
+}
+ 
+#title {
+    position: relative;
+    left: 600px;
+    top: 100px;
+    size: 40px;
+  }
+ 
 .barraStato {
   position: fixed;
   width: 100%;

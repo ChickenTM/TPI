@@ -33,6 +33,27 @@
             </div>
         </div>
 
+        <div class="container flex flex-wrap md:flex-nowrap gap-4 p-4">
+            <div id="issue-backlog" 
+                class="issue-col card bg-base-100 shadow-md p-4 flex-1 max-h-[75vh]">
+                Backlog <br>
+            </div>
+            <div id="issue-progress"
+                class="issue-col card bg-base-100 shadow-md p-4 flex-1 max-h-[75vh]">
+                In Progress <br>
+            </div>
+            <div id="issue-review" 
+                class="issue-col card bg-base-100 shadow-md p-4 flex-1 max-h-[75vh]">
+                Review <br>
+            </div>
+            <div id="issue-done" 
+                class="issue-col card bg-base-100 shadow-md p-4 flex-1 max-h-[75vh]">
+                Done <br>
+            </div>
+        </div>
+
+
+
         <div class="container w-full">
             <div id="issue-backlog" class="issue-col card card-compact bg-base-100 shadow-md p-4">Backlog <br></div>
             <div id="issue-progress" class="issue-col card card-compact bg-base-100 shadow-md p-4">In Progress <br></div>
@@ -73,7 +94,7 @@
                         class="input input-bordered w-3/4 input-sm mx-auto" required>
 
                     <div class="bg-white p-6 flex justify-center gap-2">
-                        <button type="submit" class="btn btn-xs min-w-0 px-3"
+                        <button type="submit" id="salvaIssue" class="btn btn-xs min-w-0 px-3"
                             style="background-color:#6d28d9;color:#fff;border:none;">Crea Issue</button>
                         <label for="issue-modal" class="btn btn-xs min-w-0 px-3"
                             style="background-color:#6d28d9;color:#fff;border:none;">Annulla</label>
