@@ -1,27 +1,28 @@
+html,body {
+  overflow-x: hidden;
+  
+}
 body {
   background-color: #fefefe;
   color: #1f2937;
   font-family: Arial, sans-serif;
   margin: 0;
+  overflow-y: hidden;
+  
 }
 
-/* Container colonne issue */
 .container {
   display: flex;
   gap: 16px;
   width: auto;
-  /* lascia che il contenuto determini la larghezza */
   margin: 24px auto 0 auto;
-  /* centrato automaticamente */
   padding: 0;
   transform: translateX(10px);
 }
 
 .issue-col {
   flex: 1 1 0;
-  /* Cresce equamente */
   min-width: 0;
-  /* Permette di ridurre lo spazio in flex */
   min-height: 220px;
   background: #fff;
   border-radius: 6px;
@@ -34,7 +35,6 @@ body {
   font-size: 16px;
 }
 
-/* Restante CSS invariato */
 #top-container {
   padding: 8px 16px;
   display: flex;
@@ -73,10 +73,10 @@ body {
   margin-bottom: 8px;
 }
 
-.issue-counter-backlog,
-.issue-counter-progress,
-.issue-counter-review,
-.issue-counter-done {
+#issue-counter-backlog,
+#issue-counter-progress,
+#issue-counter-review,
+#issue-counter-done {
   font-weight: 600;
 }
 
@@ -99,21 +99,27 @@ body {
   padding: 1.5rem;
   position: relative;
 }
+.modal-box::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
 
 #issueForm {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.4rem;
   align-items: center;
   width: 100%;
 }
-
+label{
+  margin-bottom: 0.35rem;
+}
 input,
 textarea,
 select,
 button {
   width: 100%;
   box-sizing: border-box;
+  margin-top: 0.15rem;
 }
 
 .footer {
@@ -137,19 +143,19 @@ button {
 }
 #issue-counter-backlog{
    position: relative;
-  right:200px;
+  right:400px;
 }
 #issue-counter-progress{
    position: relative;
-  right:150px;
+  right:350px;
 }
 #issue-counter-review{
    position: relative;
-  right:100px;
+  right:300px;
 }
 #issue-counter-done{
    position: relative;
-  right:50px;
+  right:250px;
 }
  
 .container{

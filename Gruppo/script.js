@@ -48,7 +48,7 @@ function aggiornaKanbanBoard() {
 
   issues.forEach((issue, index) => {
     const card = document.createElement("div");
-    card.className = "card bg-base-100 shadow-md p-3 border border-gray-200 hover:shadow-lg transition w-full max-w-sm mx-auto";
+    card.className = "card bg-base-100 shadow-md p-3 border border-gray-200 hover:shadow-lg transition w-full max-w-sm mx-auto mb-4";
 
     let prioritaColor = "";
     if (issue.priorita === "alta") prioritaColor = "bg-red-200 text-red-700";

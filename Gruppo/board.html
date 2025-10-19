@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" />
     <script src="script.js" defer></script>
-    <title>Problem Management Board</title>
+    <title></title>
 </head>
 
 <body class="bg-base-100 text-base-content">
@@ -17,20 +17,19 @@
             <h3 class="text-xl font-bold">PROBLEM MANAGEMENT BOARD</h3>
             <h4 class="text-sm text-gray-600">ISSUES</h4>
 
-            <div class="flex items-center gap-2 mt-3">
+            <div class="top-bar flex items-center mt-3">
                 <button type="button" onclick="newIssues()" id="btn-issues" class="btn btn-sm btn-primary">
                     Nuova Issue
                 </button>
-                <input type="text" placeholder="Cerca..." id="barra-di-ricerca"
-                    class="input input-sm input-bordered w-48" />
             </div>
 
-            <div id="conta" class="flex justify-center gap-12 mt-4 text-sm text-gray-600">
+            <div id="conta" class="flex gap-4 mt-3 text-sm text-gray-600">
                 <span id="issue-counter-backlog">Backlog:</span>
                 <span id="issue-counter-progress">In Progress:</span>
                 <span id="issue-counter-review">Review:</span>
                 <span id="issue-counter-done">Done:</span>
             </div>
+            <br><br>
         </div>
 
         <div class="container flex flex-wrap md:flex-nowrap gap-4 p-4">
@@ -54,22 +53,18 @@
 
 
 
-        <div class="container w-full">
-            <div id="issue-backlog" class="issue-col card card-compact bg-base-100 shadow-md p-4">Backlog <br></div>
-            <div id="issue-progress" class="issue-col card card-compact bg-base-100 shadow-md p-4">In Progress <br></div>
-            <div id="issue-review" class="issue-col card card-compact bg-base-100 shadow-md p-4">Review <br></div>
-            <div id="issue-done" class="issue-col card card-compact bg-base-100 shadow-md p-4">Done <br></div>
-        </div>
-
         <input type="checkbox" id="issue-modal" class="modal-toggle" />
         <div class="modal">
             <div
                 class="modal-box relative p-6 max-w-lg w-full flex flex-col items-center bg-white rounded-lg shadow-lg">
                 <form id="issueForm" class="mt-2 flex flex-col gap-3 w-full max-w-md items-center">
-                    <h2 id="newIssuesTitle" class="text-xl font-bold mb-2 w-full text-center">Nuova Issue</h2>
+                    <h2 id="newIssuesTitle" class="text-xl font-bold w-full text-center">Nuova Issue</h2>
                     <label class="label w-full justify-center"><span class="label-text">Titolo</span></label>
                     <input type="text" id="titoloIssue" name="IssueTitolo"
                         class="input input-bordered w-3/4 input-sm mx-auto" required autofocus>
+                        <label class="label w-full justify-center"><span class="label-text">Creatore</span></label>
+                    <input type="text" id="creatoreIssue" name="issueCreatore"
+                        class="input input-bordered w-3/4 input-sm mx-auto" required>
                     <label class="label w-full justify-center"><span class="label-text">Descrizione</span></label>
                     <textarea id="descrizioneIssue" name="issueDescrizione"
                         class="textarea textarea-bordered w-3/4 textarea-sm mx-auto" rows="3" required></textarea>
@@ -83,30 +78,25 @@
                     <label class="label w-full justify-center"><span class="label-text">Tipologia</span></label>
                     <select id="tipoIssue" name="issueTipo" class="select select-bordered w-3/4 select-sm mx-auto"
                         required>
-                        <option>Seleziona</option>
                         <option value="backlog">Backlog</option>
                         <option value="inProgress">In Progress</option>
                         <option value="review">Review</option>
                         <option value="done">Done</option>
                     </select>
-                    <label class="label w-full justify-center"><span class="label-text">Creatore</span></label>
-                    <input type="text" id="creatoreIssue" name="issueCreatore"
-                        class="input input-bordered w-3/4 input-sm mx-auto" required>
-
                     <div class="bg-white p-6 flex justify-center gap-2">
                         <button type="submit" id="salvaIssue" class="btn btn-xs min-w-0 px-3"
                             style="background-color:#6d28d9;color:#fff;border:none;">Crea Issue</button>
                         <label for="issue-modal" class="btn btn-xs min-w-0 px-3"
-                            style="background-color:#6d28d9;color:#fff;border:none;">Annulla</label>
+                            style="background-color:#d92828;color:#fff;border:none;">Annulla</label>
                     </div>
                 </form>
+
             </div>
         </div>
 
         <footer class="footer p-4 text-center justify-center">
             &copy; Realizzato da: Singh Sukhmandeep, Castiglioni Gabriele & Perera Shane
         </footer>
-    </div>
 </body>
 
 </html>
