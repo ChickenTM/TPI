@@ -1,6 +1,8 @@
 ﻿# ANALISI DEI REQUISITI
 Lavoro di gruppo di Singh Sukhmandeep, Perera Shane, Castiglioni Gabriele
 
+## Obiettivi del Progetto
+L'obiettivo del progetto era quello di creare una kanban board divise in 4 categorie: backlog, in progress, review e done, permettendo all'utente di spostare/creare/eliminare le issue in qualsiasi momento.
  
 ## Requisiti Funzionali 
 L’applicazione consente di creare nuove issue tramite un form dedicato e di visualizzarle all’interno di una Kanban board composta dalle colonne Backlog, In Progress, Review e Done. L’utente può inoltre modificare ed eliminare le issue esistenti in qualsiasi momento. Tutte le modifiche vengono salvate automaticamente nel localStorage, in modo da mantenere i dati anche dopo la chiusura dell’applicazione. 
