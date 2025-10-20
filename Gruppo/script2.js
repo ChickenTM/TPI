@@ -1,4 +1,4 @@
-const credenziali = JSON.parse(localStorage.getItem("credeneziali")) || [];
+const credenziali = JSON.parse(localStorage.getItem("credenziali")) || [];
 const formConferma = document.getElementById("createForm");
 
 if (formConferma){
@@ -11,13 +11,23 @@ if (formConferma){
             alert("compila tutti i campi");
             return;
         }
-        if(pwd===confermaPwd){
+        if(controllaCredenziali(usr,pwd,confermaPwd)){
             let utente = {usr,pwd};
             credenziali.push(utente);
-            salvaInLocalStorage()
+            salvaInLocalStorage();
+            localStorage.setItem("utenteAttivo", usr);
             window.location.href = "board.html";
         }
+        else{
+            alert("Nome utente già esistente oppure password non corrispondenti");
+        }
     })
+}
+function controllaCredenziali(usr, pwd,confermaPwd){
+    if(pwd !== confermaPwd){
+        return false;
+    }
+    return !credenziali.some((utente) => utente.usr === usr);
 }
 function salvaInLocalStorage(){
     localStorage.setItem("credenziali", JSON.stringify(credenziali));

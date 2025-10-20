@@ -11,6 +11,7 @@ if(form){
             return;
         }
         if(controllaCredenzialiInserite(usr,pwd)){
+            localStorage.setItem("utenteAttivo", usr);
             window.location.href = "board.html";
         }
         else{

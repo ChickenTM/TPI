@@ -4,6 +4,7 @@ const kanbanBacklog = document.querySelector("#issue-backlog");
 const kanbanProgress = document.querySelector('#issue-progress');
 const kanbanReview = document.querySelector("#issue-review");
 const kanbanDone = document.querySelector("#issue-done");
+let utenteAttivo = localStorage.getItem("utenteAttivo") || "Anonimo";
 aggiornaKanbanBoard();
 aggiornaCounter();
 function newIssues() {
@@ -18,15 +19,16 @@ if (form) {
     let descr = document.getElementById('descrizioneIssue').value;
     let priorita = document.getElementById('prioritaIssue').value;
     let tipologia = document.getElementById('tipoIssue').value;
-    let creatore = document.getElementById('creatoreIssue').value;
+    let incaricato = document.getElementById('incaricatoIssue').value;
     let checkbox = document.getElementById('issue-modal');
+  
 
     if (checkbox) checkbox.checked = false;
-    if (!titolo || !descr || !priorita || !tipologia || !creatore) {
+    if (!titolo || !descr || !priorita || !tipologia || !incaricato) {
       alert("compila tutti i campi");
       return;
     }
-    let issue = { titolo, descr, priorita, tipologia, creatore };
+    let issue = { titolo, descr, priorita, tipologia, incaricato, utenteAttivo };
     issues.push(issue);
     salvaInLocalStorage();
     aggiornaKanbanBoard();
@@ -44,9 +46,10 @@ function aggiornaKanbanBoard() {
   kanbanProgress.innerHTML = "In Progress <br>";
   kanbanReview.innerHTML = "Review <br>";
   kanbanDone.innerHTML = "Done <br>";
+  const issuesUtente = issues.filter(issue => issue.utenteAttivo === utenteAttivo);
   const counts = { backlog: 0, inProgress: 0, review: 0, done: 0 };
 
-  issues.forEach((issue, index) => {
+  issuesUtente.forEach((issue, index) => {
     const card = document.createElement("div");
     card.className = "card bg-base-100 shadow-md p-3 border border-gray-200 hover:shadow-lg transition w-full max-w-sm mx-auto mb-4";
 
@@ -63,7 +66,7 @@ function aggiornaKanbanBoard() {
         </div>
         <p class="text-sm text-gray-600">${issue.descr}</p>
         <div class="flex gap-2 mt-3 w-full">
-          <span class="badge bg-gray-200 text-gray-700">${issue.creatore}</span>     
+          <span class="badge bg-gray-200 text-gray-700">${issue.incaricato}</span>     
           <button onclick="spostaIssue(${index})"
             class="btn btn-xs btn-outline btn-primary flex-1">Sposta</button>
           <button onclick="rimuoviIssue(${index})"
@@ -89,36 +92,52 @@ function aggiornaKanbanBoard() {
   aggiornaCounter(counts);
 }
 
-function spostaIssue(index) {
-  const issue = issues[index];
-  if (issue.tipologia === "backlog") {
-    kanbanBacklog.innerHTML="Backlog <br>";
-    issue.tipologia = "inProgress";
-  } else if (issue.tipologia === "inProgress") {
-    kanbanProgress.innerHTML="In Progress <br>";
-    issue.tipologia = "review";
-  } else if (issue.tipologia === "review") {
-    kanbanReview.innerHTML="Review <br>";
-    issue.tipologia = "done";
-  } else {
-    kanbanDone.innerHTML="Done <br>";
-    issue.tipologia = "backlog";
+function spostaIssue(indexVisibile) {
+  const utenteAttivo = localStorage.getItem("utenteAttivo") || "Anonimo";
+  const issuesUtente = issues.filter(issue => issue.utenteAttivo === utenteAttivo);
+  const issueVisibile = issuesUtente[indexVisibile];
+
+  const indexReale = issues.findIndex(i => 
+    i.titolo === issueVisibile.titolo && 
+    i.utenteAttivo === utenteAttivo
+  );
+
+  const issue = issues[indexReale];
+  if (issue.tipologia === "backlog") issue.tipologia = "inProgress";
+  else if (issue.tipologia === "inProgress") issue.tipologia = "review";
+  else if (issue.tipologia === "review") issue.tipologia = "done";
+  else issue.tipologia = "backlog";
+
+  salvaInLocalStorage();
+  aggiornaKanbanBoard();
+}
+
+function rimuoviIssue(indexVisibile) {
+  const utenteAttivo = localStorage.getItem("utenteAttivo") || "Anonimo";
+  const issuesUtente = issues.filter(issue => issue.utenteAttivo === utenteAttivo);
+  const issueVisibile = issuesUtente[indexVisibile];
+
+  const indexReale = issues.findIndex(i => 
+    i.titolo === issueVisibile.titolo && 
+    i.utenteAttivo === utenteAttivo
+  );
+
+  if (indexReale !== -1) {
+    issues.splice(indexReale, 1);
+    salvaInLocalStorage();
+    aggiornaKanbanBoard();
   }
-  salvaInLocalStorage();
-  aggiornaKanbanBoard();
 }
-function rimuoviIssue(index) {
-  issues.splice(index, 1);
-  salvaInLocalStorage();
-  aggiornaKanbanBoard();
-}
+
 function aggiornaCounter(counts = null) {
   if (!counts) {
     counts = { backlog: 0, inProgress: 0, review: 0, done: 0 };
-    issues.forEach(index => {
-      if (index.tipologia === "backlog") counts.backlog++;
-      else if (index.tipologia === "progress") counts.inProgress++;
-      else if (index.tipologia === "review") counts.review++;
+    const issuesUtente = issues.filter(issue => issue.utenteAttivo === utenteAttivo);
+
+    issuesUtente.forEach(issue => {
+      if (issue.tipologia === "backlog") counts.backlog++;
+      else if (issue.tipologia === "inProgress") counts.inProgress++;
+      else if (issue.tipologia === "review") counts.review++;
       else counts.done++;
     });
   }
