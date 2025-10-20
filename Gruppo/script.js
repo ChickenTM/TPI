@@ -93,12 +93,15 @@ function aggiornaKanbanBoard() {
 }
 
 function spostaIssue(indexVisibile) {
-  const utenteAttivo = localStorage.getItem("utenteAttivo") || "Anonimo";
   const issuesUtente = issues.filter(issue => issue.utenteAttivo === utenteAttivo);
   const issueVisibile = issuesUtente[indexVisibile];
 
   const indexReale = issues.findIndex(i => 
-    i.titolo === issueVisibile.titolo && 
+    i.titolo === issueVisibile.titolo &&
+    i.descr === issueVisibile.descr && 
+    i.priorita === issueVisibile.priorita &&
+    i.tipologia === issueVisibile.tipologia &&
+    i.incaricato === issueVisibile.incaricato &&
     i.utenteAttivo === utenteAttivo
   );
 
@@ -119,6 +122,10 @@ function rimuoviIssue(indexVisibile) {
 
   const indexReale = issues.findIndex(i => 
     i.titolo === issueVisibile.titolo && 
+    i.descr === issueVisibile.descr &&
+    i.priorita === issueVisibile.priorita &&
+    i.tipologia === issueVisibile.tipologia &&
+    i.incaricato === issueVisibile.incaricato &&
     i.utenteAttivo === utenteAttivo
   );
 
